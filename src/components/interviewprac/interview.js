@@ -1,9 +1,9 @@
-import React from 'react'
+
 // fir remove duplicate array
 function RDuplicate(str) {
     let result = []
     str.forEach(function (element, i) {
-        if (str.indexOf(element) == i) {
+        if (str.indexOf(element) === i) {
             result.push(element)
         }
     });
@@ -46,7 +46,7 @@ function findD(str) {
 }
 console.log(findD([1, 3, 4, 5, 3, 4, 3, 6, 78, 8, 8]))
 
-function findD(str) {
+function fiindD(str) {
     let result = [];
     str.forEach((element, i) => {
         if (str.indexOf(element) !== i) {
@@ -79,13 +79,13 @@ function getUniqueArrays(arr) {
 }
 console.log(getUniqueArrays([1, 2, 3, 3, 2, 2, 2, 1]))
 //OR
-function getUnique(arr){
-    
+function getUnique(arr) {
+
     let result = [];
-    
+
     // loop through array
-    for(let i of arr) {
-        if(result.indexOf(i) === -1) {
+    for (let i of arr) {
+        if (result.indexOf(i) === -1) {
             result.push(i);
         }
     }
@@ -145,15 +145,15 @@ console.log(add(5)(5)(3)(4)())
 let sum = a => b => b ? sum(a + b) : a
 console.log(sum(10)(20)(1)(32)())
 // two 
-let add = a => b => a + b;
-console.log(add(5)(4))
+let add1 = a => b => a + b;
+console.log(add1(5)(4))
 
-function add(a) {
+function add2(a) {
     return function (b) {
         return a + b
     }
 }
-console.log(add(3)(6))
+console.log(add2(3)(6))
 //remove duplicate string
 function removeDups(str) {
     let char = str.split("");
@@ -213,14 +213,14 @@ function showName(firstName, lastName) {
 
 console.log(showName("DM", "Luna"));
 
-function showName(first, last) {
+function showName1(first, last) {
     var nameintro = "My name is "
     function makeName() {
         return nameintro + first + " " + last;
     }
     return makeName();
 }
-console.log(showName("Sanjay", "Bharti"));
+console.log(showName1("Sanjay", "Bharti"));
 //or
 function f1() {
     var x = 10;
@@ -287,7 +287,7 @@ console.log(Duplicate("abcabcabcdfgsercv"))
 
 //remove duplicate array in javascript
 
-function RemoveDup(arr) {
+function RemoveDup1(arr) {
     let result = [];
     for (let i of arr) {
         if (result.indexOf(i) === -1) {
@@ -296,7 +296,7 @@ function RemoveDup(arr) {
     }
     return result;
 }
-console.log(RemoveDup([2, 4, 2, 4, 3, 5, 6]))
+console.log(RemoveDup1([2, 4, 2, 4, 3, 5, 6]))
 
 //find duplicate array
 
@@ -310,6 +310,17 @@ function FindDuplicateArray(str) {
     return result;
 }
 console.log(FindDuplicateArray([1, 2, 3, 4, 5, 6, 3, 4, 5]))
+//or
+function FindDuplicateArray1(str) {
+    let result = [];
+    str.forEach((e, i) => {
+        if (str.indexOf(e) == i) {
+            result.push(e);
+        }
+    });
+    return result;
+}
+console.log(FindDuplicateArray1([1, 2, 3, 4, 5, 6, 3, 4, 5]))
 //revrse string
 function reverse(str) {
     let r = "";
@@ -421,12 +432,12 @@ arrsayy.forEach((x) => {
 // we can replace the forEach() with find()
 console.log(countss);
 //out put {one: 3, two: 2, three: 1}
-a = [5, 5, 5, 2, 2, 2, 2, 2, 9, 4];
+let a = [5, 5, 5, 2, 2, 2, 2, 2, 9, 4];
 result = {};
 for (var i = 0; i < a.length; i++) {
     if (!result[a[i]])
         result[a[i]] = 0;
-    ++result[a[i]]; 
+    ++result[a[i]];
 }
 console.log(result)
 
@@ -442,6 +453,18 @@ for (let i = 0; i < ay.length; i++) {
 }
 console.log(result)
 //or
+// let ay = "sanjnay bharti";
+// let rsult = {};
+// for (let i = 0; i < ay.length; i++) {
+//     if (!rsult[ay[i]]) {
+//         rsult[ay[i]] = 0;
+//     }
+//     ++rsult[ay[i]];
+// }
+// console.log(rsult)
+
+
+
 const arr4 = [2, 2, 2, 2, 2, 4, 5, 5, 5, 9];
 const result4 = arr4.reduce((acc, curr) => (acc[curr] = (acc[curr] || 0) + 1, acc), {});
 console.log(result4);
@@ -473,37 +496,133 @@ let abd = [11, 54, 32, 97];
 console.log(findMax(abd));
 
 // add 
-function Add(a){
-return function (b){
- if(b){
-    return add(a+b);
- }
- return a;
-}
+function Add(a) {
+    return function (b) {
+        if (b) {
+            return add(a + b);
+        }
+        return a;
+    }
 }
 console.log(add(2)(4)(5)())
 
 //or
-let add = a =>b => b ? add(a+b) : a;
-console.log(add(3)(4)(5)())
+let add3 = a => b => b ? add(a + b) : a;
+console.log(add3(3)(4)(5)())
 
 //for update the object
 let emp = {
     name: "Daniel",
     age: 23
-    };
-    const name ="Sanjay Bharti"
-    const age = 21
-      let  emp1 = {...emp, name,age}
-    console.log(emp1)
-    //{ name: 'Sanjay Bharti', age: 21 }
-    //for delete property
-    delete emp1.age
-   console.log(emp1)
-   //{ name: 'Sanjay Bharti' } 
+};
+const name = "Sanjay Bharti"
+const age = 21
+let emp1 = { ...emp, name, age }
+console.log(emp1)
+//{ name: 'Sanjay Bharti', age: 21 }
+//for delete property
+delete emp1.age
+console.log(emp1)
+//{ name: 'Sanjay Bharti' } 
 
-   //add new property
-   let newData ={city: "Kanpur"}
-   emp1 ={...emp, ...newData}
-   console.log(emp1)
-   //{ name: 'Daniel', age: 23, city: 'Kanpur' }
+//add new property
+let newData = { city: "Kanpur" }
+emp1 = { ...emp, ...newData }
+console.log(emp1)
+//{ name: 'Daniel', age: 23, city: 'Kanpur' }
+
+var x = "sanjaybharti"
+let x2 = Array.from((x.split("")));
+//let counts = {};
+x2.forEach((x) => {
+    counts[x] = (counts[x] || 0) + 1;
+});
+console.log(counts);
+//add middle postion in any ary
+let arrl = [1, "2", "7", 4, 3, 1, 2, "5", 3]
+let templ = []
+for (let i = 0; i < arrl.length; i++) {
+    if (i === 2 || arrl[i] === "5") {
+        templ.push(10)
+    } else {
+        templ.push(arrl[i])
+    }
+}
+console.log(templ)
+////[1, "2", 10, 4, 3, 1, 2, 10, 3]
+//or
+// Sample array
+let myArray = [10, 20, 40, 50];
+// Element to add to the middle
+let elementToAdd = 30;
+// Calculate the middle index
+let middleIndex = myArray.length / 2;
+// Use slice and concat to add the element to the middle
+let newArray = [...myArray.slice(0, middleIndex), elementToAdd, ...myArray.slice(middleIndex)];
+console.log(newArray); // Output: [10, 20, 30, 40, 50]
+
+//check even and odd number
+const numb = 16
+console.log((numb & 1) ? 'Odd' : 'Even')
+//or
+function checkEvenOrOdd(number) {
+    if (number % 2 === 0) {
+        return "Even";
+    } else {
+        return "Odd";
+    }
+}
+
+// Example usage
+console.log(checkEvenOrOdd(4));  // Output: Even
+console.log(checkEvenOrOdd(7));  // Output: Odd
+//remove duplicate array and string
+function Test(str) {
+    let result = "";
+    let temp = {};
+    for (let i = 0; i < str.length; i++) {
+        let char = str[i];
+        if (temp[char]) {
+            temp[char]++
+        } else {
+            temp[char] = 1;
+            result += char;
+        }
+    }
+    return result;
+}
+console.log(Test("asbhartiasbhartiasbharti"))//"asbhrti"
+console.log(Test([5, 5, 5, 2, 2, 2, 2, 2, 9, 4]))//"5294"
+
+//string and array both will work
+function test1(str) {
+    let rsult = {};
+    for (let i = 0; i < str.length; i++) {
+        let char = str[i];
+        if (!rsult[char]) {
+            rsult[char] = 0;
+        }
+        ++rsult[char];
+    }
+
+    return rsult; // Return the result object
+}
+
+console.log(test1([5, 5, 5, 2, 2, 2, 2, 2, 9, 4]));
+console.log(test1('sanjaybharti'));
+console.log(test1(['one', 'one', 'one', 'two', 'two', 'three']));
+//find duplicate aaray and string
+function findDuplicates(arr) {
+    let counts = {};
+    let duplicates = [];
+    for (let item of arr) {
+        if (counts[item]) {
+            duplicates.push(item)
+        } else {
+            counts[item] = 1;
+        }
+    }
+    return duplicates
+}
+console.log(findDuplicates([5, 2, 3, 2, 1, 3, 4, 4, 5]))
+console.log(findDuplicates("sanjaya"))
