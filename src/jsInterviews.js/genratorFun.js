@@ -1,6 +1,6 @@
 function* fetchData(){}
 //or both are generator function. the power of a genreator, you wana able to pause/continue this funtion, to pause execution, you need to yield keywords
-function *fetchData(){
+function *fetchData1(){
     const data = yield fetchMovies();
 }
 //when you execute the function, it's return an iterator that you can control with the next() method
