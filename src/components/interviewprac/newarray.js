@@ -76,7 +76,7 @@ function test1(str) {
     return rsult; // Return the result object
 }
 
-console.log(test1([5, 5, 5, 2, 2, 2, 2, 2, 9, 4]));
+console.log(test1([5, 5, 5, 2, 2, 2, 2, 2, 9, 4]));   
 console.log(test1('sanjaybharti'));
 console.log(test1(['one', 'one', 'one', 'two', 'two', 'three']));
 //find duplicate aaray and string
@@ -96,19 +96,19 @@ console.log(findDuplicates([5, 2, 3, 2, 1, 3, 4, 4, 5]))
 console.log(findDuplicates("sanjaya"))
 //or
 function findDuplicatess(arr) {
-    let counts = {};
-    let duplicates = [];
+    let result = [];
+     let temp = {};
     for (let  i = 0; i < arr.length; i++) {
         let char =arr[i];
-        if (counts[char]) {
-            duplicates.push(char)
+        if (temp[char]) {
+            result.push(char)
         } else {
-            counts[char] = 1;
+            temp[char] = 1;
         }
     }
-    return duplicates
+    return result
 }
-console.log(findDuplicatess([5, 2, 3, 2, 1, 3, 4, 4, 5]))
+console.log(findDuplicatess([5, 2, 3, 2, 1, 3, 4, 4, 5,6,6]))
 // remove duplicate array 
 function removeDuplicates(arr) {
     let uniqueArray = [];

@@ -26,11 +26,11 @@ for (let i = 0; i < flatArr.length; i++) {
 //check pranthsis
 function isValid(str) {
     const status = false;
-    const map = { "(": ")", "{": "}", "[": "]" };
+    const temp = { "(": ")", "{": "}", "[": "]" };
     let char = [];
     for (let i = 0; i < str.lengh; i++) {
-        if (map[str[i]]) {
-            char.push([map[str[i]]]);
+        if (temp[str[i]]) {
+            char.push([temp[str[i]]]);
         } else if (char.pop() !== str[i]) {
             return status;
         }
