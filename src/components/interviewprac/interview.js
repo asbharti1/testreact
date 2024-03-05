@@ -353,42 +353,7 @@ for (let k = 0; k < temp.length; k++) {
     index--;
 }
 console.log(output);
-//or
-function reverseWords(s) {
-    const arr = s.split(" ")
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] === "") {
-            arr.splice(i, 1)
-            i--
-        }
-    }
-    let left = 0
-    let right = arr.length - 1
-    while (left <= right) {
-        const temp = arr[left]
-        arr[left] = arr[right]
-        arr[right] = temp
-        left++
-        right--
-    }
-    return arr.join(" ")
-}
-console.log(reverseWords("Hello, World, India"))
 
-function ReverseNew(arr) {
-    let char = arr.split(",");
-    for (let i = 0; i < char.length; i++) {
-        for (let j = i + 3; j < char.length; j++) {
-            if (char[i] = char[j]) {
-                char.splice(j, 1);
-                j--;
-            }
-        }
-        return char.join(",")
-    }
-
-}
-console.log(ReverseNew("Hello, World, India"))
 // ascending order
 function sortNumbers(arr) {
     for (let i = 0; i < arr.length; i++) {
@@ -561,6 +526,63 @@ let middleIndex = myArray.length / 2;
 let newArray = [...myArray.slice(0, middleIndex), elementToAdd, ...myArray.slice(middleIndex)];
 console.log(newArray); // Output: [10, 20, 30, 40, 50]
 
+//or
+let myArray3 = [10, 20, 40, 50];
+let elementToAdd3 = 30;
+let middleIndex3 = myArray3.length / 2; // Middle index without Math.floor()
+// Create a new array to hold the modified elements
+let newArray3 = [];
+// Loop through the original array
+for (let i = 0; i < myArray3.length; i++) {
+    // When we reach the middle index, add the new element
+    if (i === middleIndex) {
+        newArray.push(elementToAdd);
+    }
+    // Add the current element from the original array
+    newArray.push(myArray3[i]);
+}
+
+console.log(newArray); // Output: [10, 20, 30, 40, 50]
+
+// let myArray = [10, 20, 40, 50];
+// let elementToAdd = 5;
+// // Add the element to the beginning of the array using unshift()
+// myArray.unshift(elementToAdd);
+// console.log(myArray); // Output: [5, 10, 20, 40, 50]
+
+// let myArray = [10, 20, 40, 50];
+// let elementToAdd = 5;
+// let newArray = [];
+// newArray[0] = elementToAdd;
+// for (let i = 0; i < myArray.length; i++) {
+//     // Add the current element from the original array to the new array
+//     newArray.push(myArray[i]);
+// }
+
+// console.log(newArray); // Output: [5, 10, 20, 40, 50]
+
+
+// let myArray = [10, 20, 40, 50];
+// let elementToAdd = 60;
+// // Add the element to the end of the array using push()
+// myArray.push(elementToAdd);
+// console.log(myArray); // Output: [10, 20, 40, 50, 60]
+
+
+// let myArray = [10, 20, 40, 50];
+// let elementToAdd = 60;
+// // Create a new array to hold the modified elements
+// let newArray = [];
+// // Loop through the original array
+// for (let i = 0; i < myArray.length; i++) {
+//     // Add the current element from the original array to the new array
+//     newArray.push(myArray[i]);
+// }
+// // Add the element to the end of the new array
+// newArray.push(elementToAdd);
+// console.log(newArray); // Output: [10, 20, 40, 50, 60]
+
+
 //check even and odd number
 const numb = 16
 console.log((numb & 1) ? 'Odd' : 'Even')
@@ -595,22 +617,35 @@ console.log(Test("asbhartiasbhartiasbharti"))//"asbhrti"
 console.log(Test([5, 5, 5, 2, 2, 2, 2, 2, 9, 4]))//"5294"
 
 //string and array both will work
-function test1(str) {
-    let rsult = {};
-    for (let i = 0; i < str.length; i++) {
-        let char = str[i];
-        if (!rsult[char]) {
-            rsult[char] = 0;
+function test1(arr) {
+    let result = {};
+ 
+    for (let i = 0; i < arr.length; i++) {
+        let element = arr[i];
+ 
+        if (!result[element]) {
+            result[element] = 0;
         }
-        ++rsult[char];
+ 
+        ++result[element];
     }
-
-    return rsult; // Return the result object
-}
-
-console.log(test1([5, 5, 5, 2, 2, 2, 2, 2, 9, 4]));
+ 
+    return result;
+ }
+ 
+ console.log(test1([5, 5, 5, 2, 2, 2, 2, 2, 9, 4]));
+ 
 console.log(test1('sanjaybharti'));
 console.log(test1(['one', 'one', 'one', 'two', 'two', 'three']));
+//or 
+function teste(arr) {
+    return arr.reduce((result, element) => {
+        result[element] = (result[element] || 0) + 1;
+        return result;
+    },{});
+}
+
+console.log(teste([5, 5, 5, 2, 2, 2, 2, 2, 9, 4]));
 //find duplicate aaray and string
 function findDuplicates(arr) {
     let counts = {};
@@ -625,4 +660,77 @@ function findDuplicates(arr) {
     return duplicates
 }
 console.log(findDuplicates([5, 2, 3, 2, 1, 3, 4, 4, 5]))
-console.log(findDuplicates("sanjaya"))
+// console.log(findDuplicates("sanjaya"))
+function findduplicate(arr){
+    let result ={};
+    let duplicateArr =[];
+    for(let i=0; i< arr.length; i++ ){
+        let char = arr[i]
+if (result[char] ){
+    duplicateArr.push(char)
+}else{
+    result[char] =1
+}
+   
+}
+    return duplicateArr
+}
+console.log(findduplicate([4,6,7,8,9,4,5,67,7]))//4,7
+
+// String s = “ABC “
+// The output should be -ABC ACB BAC BCA CBA CAB answer in javascript
+function Teest(input, current = '', output = []) {
+  if (input.length === 0) {
+    output.push(current);
+    return;
+  }
+
+  for (let i = 0; i < input.length; i++) {
+    const remaining = input.slice(0, i) + input.slice(i + 1);
+    Teest(remaining, current + input[i], output);
+  }
+
+  return output;
+}
+
+const s = "ABC";
+const results = Teest(s);
+
+console.log(results.join(" "));
+
+//how to match the string
+let s1 = "selenium";
+let s2 = new String("selenium");
+
+// Using === operator for value comparison
+if (s1 === s2) {
+    console.log("Both strings are equal");
+} else {
+    console.log("Strings are not equal");
+}
+
+// Using == operator for value comparison
+if (s1 == s2) {
+    console.log("Both strings are equal");
+} else {
+    console.log("Strings are not equal");
+}
+////////important
+let arr1 = [3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3];
+
+for (let i = 0; i < arr1.length; i++) {
+    if (typeof arr1[i] === 'string') {
+        console.log(arr1[i]);
+    }
+}
+//another solution
+let arry=[3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3];
+function Tewt(str){
+    for(let i=0; i<str.length; i++){
+        if(typeof str[i] ==='string'){
+            console.log(str[i])
+        }
+    }
+    
+}
+Tewt( arry)

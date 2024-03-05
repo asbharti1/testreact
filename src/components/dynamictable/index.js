@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './style.css';
-import { Space, Table, Tag } from 'antd';
+import { Table } from 'antd';
 
 export default function App() {
   const [data, setData] = useState([]);

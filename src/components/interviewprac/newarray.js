@@ -18,6 +18,19 @@ for (let i = 0; i < arrl.length; i++) {
 }
 console.log(templ)
 ////[1, "2", 10, 4, 3, 1, 2, 10, 3]
+let originalArray = [1, "2", "7", 4, 3, 1, 2, "5", 3];
+let modifiedArray = [];
+
+for (let i = 0; i < originalArray.length; i++) {
+    if (i === 2 || originalArray[i] === "5") {
+        modifiedArray.push(10);
+    } else {
+        modifiedArray.push(originalArray[i]);
+    }
+}
+
+console.log(modifiedArray);
+
 //or
 // Sample array
 let myArray = [10, 20, 40, 50];
@@ -61,6 +74,20 @@ function Test(str) {
 }
 console.log(Test("asbhartiasbhartiasbharti"))//"asbhrti"
 console.log(Test([5, 5, 5, 2, 2, 2, 2, 2, 9, 4]))//"5294"
+
+//or
+function uniqueArr(arr){
+    let result =[];
+    arr.forEach((element) =>{
+        if(!result[element]){
+            result[element] = true
+        }
+    })
+    return Object.keys(result)
+}
+let priarr =[1,5,2,4,6,1];
+console.log(uniqueArr(priarr))
+//output [ '1', '2', '4', '5', '6' ]
 
 //string and array both will work
 function test1(str) {
@@ -155,3 +182,72 @@ function reverseString(str) {
   }
   
   console.log(reverseString("Hello, World!")); // Output: "!dlroW ,olleH"
+//object.freeze
+  const person = {
+    test: { 
+        name: 'John',
+        age: 30,
+        city: 'New York'
+        
+    }
+ };
+ 
+ // Freeze the object
+ //The Object.freeze() method in JavaScript is used to freeze an object, meaning no new properties can be added to it, existing properties cannot be removed, and the values of existing properties cannot be changed. It essentially makes the object immutable.
+ //Keep in mind that Object.freeze() operates on the top-level of the object. If the object contains nested objects, the properties of those nested objects are not frozen, and they can still be modified.
+ 
+ Object.freeze(person);
+ 
+ // Attempt to modify the existing property
+ person.test.age = 31; // This will  have any effect
+ 
+ // Attempt to add a new property
+ person.test.gender = 'Male'; // This will  be added
+ 
+ // Attempt to delete a property
+ delete person.test.city; // This will work
+ 
+ // The object remains unchanged
+ console.log(person); // Output: { test: { name: 'John', age: 31, gender: 'Male' } }
+
+ //how you can implement the function to reverse a string without affecting special characters in JavaScript:
+ function reverseString(s) {
+    // Convert string to array for easy manipulation
+    let sArray = s.split('');
+    
+    // Helper function to check if a character is alphanumeric
+    const isAlphanumeric = (char) => {
+        return /[a-zA-Z0-9]/.test(char);
+    };
+    
+    // Initialize pointers for reversing
+    let left = 0;
+    let right = sArray.length - 1;
+    
+    // Swap alphanumeric characters while preserving special characters
+    for (let i = 0; i < sArray.length; i++) {
+        if (left >= right) break; // Break if pointers meet or cross
+
+        if (!isAlphanumeric(sArray[left])) {
+            left++;
+        } else if (!isAlphanumeric(sArray[right])) {
+            right--;
+        } else {
+            // Swap alphanumeric characters
+            let temp = sArray[left];
+            sArray[left] = sArray[right];
+            sArray[right] = temp;
+            left++;
+            right--;
+        }
+    }
+    
+    // Convert array back to string
+    return sArray.join('');
+}
+
+// Test the function
+let s = "a,b$c";
+let reversedString = reverseString(s);
+console.log("Reversed string without affecting special characters:", reversedString);
+
