@@ -734,3 +734,19 @@ function Tewt(str){
     
 }
 Tewt( arry)
+
+function test(arr) {
+    let result = [];
+    let temp = {};
+    for (let i = 0; i < arr.length; i++) {
+        let obj = arr[i];
+        let str = JSON.stringify(obj);
+        if (!temp[str]) {
+            result.push(obj);
+            temp[str] = true;
+        }
+    }
+    return result;
+}
+
+console.log(test([{ id: 1 }, { id: 2 }, { id: 2 }, { id: 4 }, { id: 2 }, { id: 5 }, { id: 6 }, { id: 6 }]));
